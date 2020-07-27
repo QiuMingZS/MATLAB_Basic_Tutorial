@@ -1,0 +1,740 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB R2019b"><title>MATLAB基础教程</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(213, 80, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.CodeBlock { background-color: #F7F7F7; margin: 10px 0 10px 0;}
+.S2 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 4px; padding: 6px 45px 4px 13px; line-height: 16.996px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S3 { margin: 10px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S4 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 0px none rgb(0, 0, 0); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 16.996px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S5 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 16.996px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S6 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 0px none rgb(0, 0, 0); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 16.996px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S7 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(60, 60, 60); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S8 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(60, 60, 60); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S9 { margin: 15px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(213, 80, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }</style></head><body><div class = rtcContent><h1  class = 'S0' id = 'T_5E78A5BC' ><span style=' font-family: monospace;'>MATLAB基础教程</span></h1><div  class = 'S1'><span style=' font-family: monospace;'>作者：To_Fourier</span></div><div  class = 'S1'><span style=' font-family: monospace;'>创建时间：2020年7月26日20：57</span></div><div  class = 'S1'><span style=' font-family: monospace;'>修改时间：2020年7月26日23：52</span></div><div  class = 'S1'><span style=' font-family: monospace;'>个人博客：</span><a href = "https://qiuming.blog.csdn.net/"><span style=' text-decoration: underline; font-family: monospace;'>https://qiuming.blog.csdn.net/</span></a></div><div  class = 'S1'><span style=' font-family: monospace;'>GitHub：</span><a href = "https://github.com/QiuMingZS"><span style=' text-decoration: underline; font-family: monospace;'>https://github.com/QiuMingZS</span></a></div><h1  class = 'S0' id = 'T_787ECB98' ><span style=' font-family: monospace;'>MATLAB概述</span></h1><div  class = 'S1'><span style=' font-family: monospace;'>1.命名：</span></div><div  class = 'S1'><span style=' font-family: monospace;'>MATLAB = MATrix + LABoratory</span></div><div  class = 'S1'><span style=' font-family: monospace;'>2.运行平台：</span></div><div  class = 'S1'><span style=' font-family: monospace;'>Windows, Linux, MacOS</span></div><div  class = 'S1'><span style=' font-family: monospace;'>3.特点：</span></div><div  class = 'S1'><span style=' font-family: monospace;'>    1）强大的数值运算功能；</span></div><div  class = 'S1'><span style=' font-family: monospace;'>    2）强大的图形处理能力；</span></div><div  class = 'S1'><span style=' font-family: monospace;'>    3）高级但简单的编程环境；</span></div><div  class = 'S1'><span style=' font-family: monospace;'>    4）丰富的工具箱</span></div><div  class = 'S1'><span style=' font-family: monospace;'>4.视窗可视化环境</span></div><div  class = 'S1'><span style=' font-family: monospace;'>    * 标题栏（Title Bar）</span></div><div  class = 'S1'><span style=' font-family: monospace;'>    * 菜单（Menu）</span></div><div  class = 'S1'><span style=' font-family: monospace;'>    * 工具栏（ToolBar）</span></div><div  class = 'S1'><span style=' font-family: monospace;'>    * 视图一：current directory/workspace</span></div><div  class = 'S1'><span style=' font-family: monospace;'>    * 视图二：command window </span></div><div  class = 'S1'><span style=' font-family: monospace;'>    * 视图三：command history</span></div><h1  class = 'S0' id = 'T_31CF6BAE' ><span style=' font-family: monospace;'>Command Window</span></h1><div  class = 'S1'><span style=' font-family: monospace;'>1.命令提示符 &gt;&gt;</span></div><div  class = 'S1'><span style=' font-family: monospace;'>2.上下左右箭头, Home, End, Delete, Insert</span></div><div  class = 'S1'><span style=' font-family: monospace;'>3.清空命令行窗口</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>clc</span></span></div></div></div><div  class = 'S3'><span style=' font-family: monospace;'>4.清空工作区</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>clear</span></span></div></div></div><div  class = 'S3'><span style=' font-family: monospace;'>5.查看帮助</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>help </span><span style="color: rgb(160, 32, 240);">sin</span></span></div></div></div><div  class = 'S3'><span style=' font-family: monospace;'>6.查找</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span style="color: rgb(60, 118, 61);">% lookfor sin</span></span></div></div></div><div  class = 'S3'><span style=' font-family: monospace;'>7.查看相关文档</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>doc </span><span style="color: rgb(160, 32, 240);">sin</span></span></div></div></div><div  class = 'S3'><span style=' font-family: monospace;'>8.分号取消输出</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span class="warning_squiggle_rte">a</span><span> = 5;</span></span></div></div></div><div  class = 'S3'><span style=' font-family: monospace;'>9.续行符</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span class="warning_squiggle_rte">b</span><span> = 1 + 2 + 3 + </span><span style="color: rgb(0, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>    5 + 6</span></span></div></div></div><div  class = 'S3'><span style=' font-family: monospace;'>10.命令之间的逗号</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>c = 5, d = 6</span></span></div></div></div><div  class = 'S3'><span style=' font-family: monospace;'>11.查看MATLAB搜索路径</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>path</span></span></div></div></div><div  class = 'S3'><span style=' font-family: monospace;'>12.CTRL + C强制终止</span></div><div  class = 'S1'><span style=' font-family: monospace;'>13.退出MATLAB</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span style="color: rgb(60, 118, 61);">% exit</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(60, 118, 61);">% quit</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span style="color: rgb(60, 118, 61);">% 直接关闭</span></span></div></div></div><h1  class = 'S0' id = 'T_9BB8E7E2' ><span style=' font-family: monospace;'>一个简单的例子</span></h1><div  class = 'S1'><span style=' font-weight: bold; font-family: monospace;'>要求：</span></div><div  class = 'S1'><span style=' font-family: monospace;'>编写函数文件arith_1.m，任意输入一个正整数，如果是1，直接输出1。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>否则：如果是偶数，用2除，如果是奇数，用3乘再加1，反复这个过程，直到所得到的数为1，将依次得到的这个数列返回（数列中包括输入的正整数）</span></div><div  class = 'S1'><span style=' font-weight: bold; font-family: monospace;'>代码示例：</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>arith_1(65)</span></span></div></div></div><h1  class = 'S0' id = 'T_5F0F5448' ><span style=' font-family: monospace;'>MATLAB的工作空间</span></h1><div  class = 'S1'><span style=' font-family: monospace;'>  * 当MATLAB启动后，系统会自动建立一个工作空间，这时的工作空间内只包含系统所提供的一些特殊变量，如pi，eps，nan，i等。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>  * 随着用户的使用，逐渐增加一些用户自己定义的变量。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>  * 使用who，whos可以查看到当前工作空间所有变量的情况。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>  * 使用clear可以删除全部或部分工作空间中的变量。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>  * 关闭MATLAB，释放工作空间，所有变量会被释放。</span></div><div  class = 'S1'><span style=' font-family: monospace;'></span></div><h1  class = 'S0' id = 'T_01C3E16B' ><span style=' font-family: monospace;'>MATLAB的搜索路径</span></h1><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>path</span></span></div></div></div><div  class = 'S3'><span style=' font-family: monospace;'>MATLAB遇到一个命令（test）时，其处置过程为： </span></div><div  class = 'S1'><span style=' font-family: monospace;'>    1.将test视为使用者自定义的变量。 </span></div><div  class = 'S1'><span style=' font-family: monospace;'>    2.若test不是使用者自定义的变量，将其视为系统定义的常量。 </span></div><div  class = 'S1'><span style=' font-family: monospace;'>    3.若test不是常量，检查其是否为当前工作目录下的M文件。 </span></div><div  class = 'S1'><span style=' font-family: monospace;'>    4.若不是，则由搜寻路径寻找是否有test.m的文件。 </span></div><div  class = 'S1'><span style=' font-family: monospace;'>    5.若在搜寻路径中找不到，则MATLAB会印出错误讯息。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>    * 处置过程可能因版本不同而略有不同。  </span></div><h1  class = 'S0' id = 'T_CC6F773F' ><span style=' font-family: monospace;'>变量</span></h1><div  class = 'S1'><span style=' font-family: monospace;'>MATLAB特殊之处(相较于C语言)：无需进行变量声明。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 遇到新变量名时，自动生成变量，并指定合适的存储空间。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 如变量早已存在，则自动更新。</span></div><div  class = 'S1'><span style=' font-family: monospace;'></span></div><h2  class = 'S7' id = 'H_E3F4CB80' ><span style=' font-family: monospace;'>1.系统特殊变量 </span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span style="color: rgb(60, 118, 61);">% ans</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>1 + 2 + 3 + 4 + 5</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(60, 118, 61);">% 其他的系统特殊变量</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>pi</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>inf</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>eps</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>nan</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>NaN</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>i</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span class="warning_squiggle_rte warningHighlight">j</span></span></div></div></div><h2  class = 'S8' id = 'H_A2D240D8' ><span style=' font-family: monospace;'>2.变量命名规则</span></h2><div  class = 'S1'><span style=' font-family: monospace;'>* 变量名由字母、数字和下划线组成。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 字母间不可留空格且第一个字符必须为字母</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 区分大小写。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 变量名的长度上限为n个字符。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 变量名不能为中文；</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 系统变量名不要和自定义重名。</span></div><div  class = 'S1'><span style=' font-weight: bold; font-family: monospace;'>万一自定义变量名和系统变量名一样结果会怎样？怎么办?</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>isvarname  </span><span style="color: rgb(160, 32, 240);">myVarName</span><span>  </span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>isvarname  </span><span style="color: rgb(160, 32, 240);">7myVarName</span></span></div></div></div><h2  class = 'S8' id = 'H_B2F5A7FE' ><span style=' font-family: monospace;'>3.获取当前变量</span></h2><div  class = 'S1'><span style=' font-family: monospace;'>命令行直接键入变量名。</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>a = 5;</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>a</span></span></div></div></div><h2  class = 'S7' id = 'H_45EDD38B' ><span style=' font-family: monospace;'>4.变量的精度</span></h2><div  class = 'S1'><span style=' font-family: monospace;'>控制显示精度函数： format</span></div><div  class = 'S1'><span style=' font-family: monospace;'>控制精度计算的函数：</span></div><div  class = 'S1'><span style=' font-family: monospace;'>    digits(n):设置缺省的精度；</span></div><div  class = 'S1'><span style=' font-family: monospace;'>    vpa(S,n):将S表示为n位有效位数的形式。</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>x = 0;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">for </span><span>n = 1:82</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    x = x + 0.01;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>x </span><span class="warning_squiggle_rte warningHighlight">==</span><span> 0.82  </span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>format </span><span style="color: rgb(160, 32, 240);">long</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>x</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>   </span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>x=0;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">for </span><span>n = 1:82</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    x = x + 1;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>x </span><span class="warning_squiggle_rte warningHighlight">==</span><span> 82</span></span></div></div></div><h2  class = 'S7' id = 'H_7BC0B0F0' ><span style=' font-family: monospace;'>5.查看变量</span></h2><div  class = 'S1'><span style=' font-family: monospace;'>who：查看当前工作区（workspace）的变量。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>whos：查看当前变量的详细信息。</span></div><h2  class = 'S7' id = 'H_1724121B' ><span style=' font-family: monospace;'>6.清除变量</span></h2><div  class = 'S1'><span style=' font-family: monospace;'>clear：清除所有定义过的变量。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>clear 变量名：清除某个变量。</span></div><h2  class = 'S7' id = 'H_E3155F78' ><span style=' font-family: monospace;'>7.变量的初始化（三种方式）</span></h2><div  class = 'S1'><span style=' font-family: monospace;'>* 用赋值语句初始化变量。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 用input 函数从键盘输入初始化变量。</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>in1 = input(</span><span style="color: rgb(160, 32, 240);">'enter data:'</span><span>);</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>in2 = input(</span><span style="color: rgb(160, 32, 240);">'enter data:'</span><span>, </span><span style="color: rgb(160, 32, 240);">'s'</span><span>)</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>in1+in2</span></span></div></div></div><div  class = 'S3'><span style=' font-family: monospace;'>* 从文件读取一个数据。</span></div><h2  class = 'S8' id = 'H_775574FE' ><span style=' font-family: monospace;'>8.变量的作用域</span></h2><div  class = 'S1'><span style=' font-family: monospace;'>（1）局部变量（Local）：在函数中使用的变量，</span></div><div  class = 'S1'><span style=' font-family: monospace;'>    只能在函数的范围内使用。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>（2）全局变量（Global）：在命令文件或工作空间中定义。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>    用global定义全局变量。</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">global</span><span>  </span><span class="nonlocalVariableHighlighting warning_squiggle_rte warningHighlight">Gvar1</span><span> </span><span class="nonlocalVariableHighlighting warning_squiggle_rte warningHighlight">Gvar2</span><span> </span><span class="nonlocalVariableHighlighting warning_squiggle_rte warningHighlight">Gvar3</span></span></div></div></div><div  class = 'S3'><span style=' font-family: monospace;'>（3）永久变量（Persistent）：只能在函数文件中定义和使用，只允许定义它的函数存取。只有清除函数或者关闭MATLAB时，才能从内存中清除它们。</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span style="color: rgb(60, 118, 61);">% persistent perVar</span></span></div></div></div><div  class = 'S3'><span style=' font-weight: bold; font-family: monospace;'>TIPS：尽量不使用全局变量和永久变量！</span></div><div  class = 'S1'><span style=' font-weight: bold; font-family: monospace;'></span></div><h1  class = 'S9' id = 'T_05BD3F2C' ><span style=' font-weight: bold; font-family: monospace;'>数据的读写</span></h1><div  class = 'S1'><span style=' font-weight: bold; font-family: monospace;'>思考：</span></div><div  class = 'S1'><span style=' font-family: monospace;'>    关闭MATLAB，释放工作空间，所有变量会被释放。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>    这样会出现什么问题？</span></div><div  class = 'S1'><span style=' font-family: monospace;'></span></div><div  class = 'S1'><span style=' font-family: monospace;'></span></div><div  class = 'S1'><span style=' font-family: monospace;'></span></div><div  class = 'S1'><span style=' font-family: monospace;'></span></div><div  class = 'S1'><span style=' font-family: monospace;'></span></div><div  class = 'S1'><span style=' font-family: monospace;'></span></div><div  class = 'S1'><span style=' font-family: monospace;'></span></div><div  class = 'S1'><span style=' font-family: monospace;'></span></div><div  class = 'S1'><span style=' font-family: monospace;'></span></div><div  class = 'S1'><span style=' font-family: monospace;'></span></div><div  class = 'S1'><span style=' font-family: monospace;'></span></div><div  class = 'S1'><span style=' font-family: monospace;'></span></div><div  class = 'S1'><span style=' font-weight: bold; font-family: monospace;'>解决办法：</span></div><div  class = 'S1'><span style=' font-family: monospace;'>    将工作空间中的变量存储到文件中。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>    这样，即使退出了MATLAB系统，变量依然存在。需要使用时，将这些变量从文件中读取出来即可</span></div><h2  class = 'S7' id = 'H_09072C92' ><span style=' font-family: monospace;'>1.save命令</span></h2><div  class = 'S1'><span style=' font-weight: bold; font-family: monospace;'>功能</span><span style=' font-family: monospace;'>：将变量以二进制的方式存储至后缀名为.mat的文档中。</span></div><div  class = 'S1'><span style=' font-weight: bold; font-family: monospace;'>格式</span><span style=' font-family: monospace;'>：save filename</span></div><div  class = 'S1'><span style=' font-weight: bold; font-family: monospace;'>注意事项：</span></div><div  class = 'S1'><span style=' font-family: monospace;'>1) 存储文件为.mat的二进制mat文档中。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>2) 若文件名缺省，则自动存储到matlab.mat中。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>3) 若为save filename x 则只将变量x存储到文件中去。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>4 ) 若为save filename u w –append 则将变量u，w添加到文件名为filename.mat的文件中。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>5 ) 若为save filename u w –ascii 则将变量u，w保存为filename的8位ASCII文档。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>6) 若为save filename u w –ascii -double则将变量u，w保存为filename的16位ASCII文档。</span></div><div  class = 'S1'><span style=' font-weight: bold; font-family: monospace;'>Note：ASCII文档特色（使用-ascii后缀）：</span></div><div  class = 'S1'><span style=' font-family: monospace;'>（1）ASCII文档可以看到文档内容。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>（2）默认的存储格式是二进制的mat文件。存储ASCII文档必须加-ascii。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>（3）save  -ascii通常只存为一个变量，原有变量名消失。load载入时，取用文件名为变量名。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>（4）对于复数，save -ascii后只存实部，虚部抛弃。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>（5）ASCII文件通常比二进制文件大,二进制文档较小，读取速度快。</span></div><div  class = 'S1'><span style=' font-weight: bold; font-family: monospace;'>建议：</span></div><div  class = 'S1'><span style=' font-family: monospace;'>   尽量使用二进制文件存储MATLAB变量。</span></div><h2  class = 'S7' id = 'H_80826B4D' ><span style=' font-family: monospace;'>2.load命令</span></h2><div  class = 'S1'><span style=' font-weight: bold; font-family: monospace;'>功能</span><span style=' font-family: monospace;'>：读取保存在文件中的变量。</span></div><div  class = 'S1'><span style=' font-weight: bold; font-family: monospace;'>格式</span><span style=' font-family: monospace;'>：load filename</span></div><div  class = 'S1'><span style=' font-family: monospace;'>      load filename –ascii</span></div><div  class = 'S1'><span style=' font-family: monospace;'>      load filename –mat</span></div><div  class = 'S1'><span style=' font-weight: bold; font-family: monospace;'>注意事项</span><span style=' font-family: monospace;'>：</span></div><div  class = 'S1'><span style=' font-family: monospace;'>    首先，MATLAB在系统默认路径中自动寻找名称为filename.mat的二进制文件。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>    其次，若无该文件，则找filename的文件，用ASCII方式载入。</span></div><h1  class = 'S0' id = 'T_51DE1270' ><span style=' font-family: monospace;'>MATLAB的三种控制结构</span></h1><div  class = 'S1'><span style=' font-family: monospace;'>   按照程序设计的观点, 任何算法功能都可以通过</span></div><div  class = 'S1'><span style=' font-family: monospace;'>程序模块组成的三种基本程序结构的组合来实现:</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 顺序结构：程序按程序语句或模块在执行流中的 顺序逐个执行。 </span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 选择结构：程序按设定的条件实现程序执行流的多路分支。 </span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 循环结构：程序按给定的条件重复地执行指定的程序段或模块。</span></div><h2  class = 'S7' id = 'H_C49901E6' ><span style=' font-family: monospace;'>1.顺序结构</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>a = 0:0.01:2*pi</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>sin_a = sin(a)</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>plot(sin_a)</span></span></div></div></div><h2  class = 'S7' id = 'H_F1758F9A' ><span style=' font-family: monospace;'>2.选择结构</span></h2><div  class = 'S1'><span style=' font-family: monospace;'>* if语句</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>clear</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>n = input(</span><span style="color: rgb(160, 32, 240);">'输入n= '</span><span>); 			</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">if </span><span>n &gt;= 90</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    </span><span class="warning_squiggle_rte">r</span><span> = </span><span style="color: rgb(160, 32, 240);">'A'</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">elseif </span><span>n &gt;= 80</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    </span><span class="warning_squiggle_rte">r</span><span> = </span><span style="color: rgb(160, 32, 240);">'B'</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">elseif </span><span>n &gt;= 70</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    </span><span class="warning_squiggle_rte">r</span><span> = </span><span style="color: rgb(160, 32, 240);">'C'</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">elseif </span><span>n &gt;= 60</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    </span><span class="warning_squiggle_rte">r</span><span> = </span><span style="color: rgb(160, 32, 240);">'D'</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">else</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    </span><span class="warning_squiggle_rte">r</span><span> = </span><span style="color: rgb(160, 32, 240);">'E'</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div></div><div  class = 'S1'><span style=' font-family: monospace;'>* switch语句</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>clear</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>n = input(</span><span style="color: rgb(160, 32, 240);">'输入n= '</span><span>); </span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>lowline = floor(n/10) </span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">switch </span><span>lowline</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    </span><span style="color: rgb(0, 0, 255);">case </span><span>{10, 9}</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>        r = </span><span style="color: rgb(160, 32, 240);">'A'</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    </span><span style="color: rgb(0, 0, 255);">case </span><span>8</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>        r = </span><span style="color: rgb(160, 32, 240);">'B'</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    </span><span style="color: rgb(0, 0, 255);">case </span><span>7</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>        r = </span><span style="color: rgb(160, 32, 240);">'C'</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    </span><span style="color: rgb(0, 0, 255);">case </span><span>6</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>        r = </span><span style="color: rgb(160, 32, 240);">'D'</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    </span><span style="color: rgb(0, 0, 255);">otherwise</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>        r = </span><span style="color: rgb(160, 32, 240);">'E'</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div></div><h2  class = 'S8' id = 'H_77668248' ><span style=' font-family: monospace;'>3.循环结构</span></h2><div  class = 'S1'><span style=' font-family: monospace;'>* for语句</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>clear</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>sum = 0;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">for </span><span>i = 1:1:100</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    sum = sum + i;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>sum</span></span></div></div></div><div  class = 'S3'><span style=' font-family: monospace;'>* while语句</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>clear</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>sum = 0; </span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>i = 0;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">while </span><span>i &lt; 100</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    i = i + 1;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    sum = sum + i;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>sum</span></span></div></div></div><h2  class = 'S8' id = 'H_92105905' ><span style=' font-family: monospace;'>4.break和continue语句</span></h2><div  class = 'S1'><span style=' font-family: monospace;'>* break语句用于立即跳出含该break语句的循环语句。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* continue语句用于提前结束当前循环。</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">for </span><span>ii = 1:5</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    </span><span style="color: rgb(0, 0, 255);">if </span><span>ii == 3</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>        </span><span style="color: rgb(0, 0, 255);">break</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    </span><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    fprintf(</span><span style="color: rgb(160, 32, 240);">'ii = %d \n'</span><span>, ii)</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>disp(</span><span style="color: rgb(160, 32, 240);">'End of loop!'</span><span>)</span></span></div></div></div><div  class = 'S3'><span style=' font-family: monospace;'></span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">for </span><span>ii = 1:5</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    </span><span style="color: rgb(0, 0, 255);">if </span><span>ii == 3</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>        </span><span style="color: rgb(0, 0, 255);">continue</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    </span><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    fprintf(</span><span style="color: rgb(160, 32, 240);">'ii = %d \n'</span><span>, ii)</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>disp(</span><span style="color: rgb(160, 32, 240);">'End of loop!'</span><span>)</span></span></div></div></div><h2  class = 'S7' id = 'H_23E56AA7' ><span style=' font-family: monospace;'>5.return语句</span></h2><div  class = 'S1'><span style=' font-family: monospace;'>    用于终止当前命令的执行, 在任何地方遇到return时程序立即终止。</span></div><h2  class = 'S8' id = 'H_75781820' ><span style=' font-family: monospace;'>6.try-catch语句</span></h2><div  class = 'S1'><span style=' font-family: monospace;'>* 用于实现异常处理机制。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 需要检测的程序必须放在try语句块中执行。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 异常由catch语句捕获并处理。</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>clear</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>N = input(</span><span style="color: rgb(160, 32, 240);">'please input N='</span><span>)</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>A = magic(3)</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">try</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    A_N=A(N,N)</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">catch </span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    fprintf(</span><span style="color: rgb(160, 32, 240);">'You Number is too big!'</span><span>)</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    A_end=A(end,end)</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div></div><h1  class = 'S0' id = 'T_2BAF71AC' ><span style=' font-family: monospace;'>M文件的定义、调用和调试</span></h1><div  class = 'S1'><span style=' font-weight: bold; font-family: monospace;'>主要类型：</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 命令文件（脚本文件）</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 函数文件</span></div><div  class = 'S1'><span style=' font-weight: bold; font-family: monospace;'>编程原则：</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 百分号 % 后面的内容是程序的注释信息。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* clear命令用于清除变量，通常用于主程序开头。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 充分利用MATLAB提供的函数来进行运算。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 在语句后输入分号，使中间结果不显示在屏幕上。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 输入少量数据时，可以使用input命令；</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 大量的数据输入最好通过子程序完成，在主程序中只需要调用该子程序即可。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 尽量采用主程序调用子程序的方法，使主程序清晰易读，便于维护。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 充分利用调试功能对程序进行调试，有的时候隐含的逻辑错误更不容易发现，危害却更大。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 设置MATLAB的工作路径和当前工作目录，方便操作和运行程序。</span></div><h2  class = 'S7' id = 'H_426C36ED' ><span style=' font-family: monospace;'>1.命令文件（脚本文件）</span></h2><div  class = 'S1'><span style=' font-family: monospace;'>* MATLAB代码按顺序组成的命令序列。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 不接受输入参数和输出参数。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 与MATLAB工作空间共享变量空间。</span></div><h2  class = 'S7' id = 'H_3E419DCB' ><span style=' font-family: monospace;'>2.命令文件的调用方法</span></h2><div  class = 'S1'><span style=' font-family: monospace;'>* 在MATLAB命令窗口直接输入命令文件的文件名即可。 </span></div><h2  class = 'S7' id = 'H_340A4244' ><span style=' font-family: monospace;'>3.Tips:</span></h2><div  class = 'S1'><span style=' font-family: monospace;'>* 命令文件最好保存在当前目录下。 </span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 命令文件的文件名不要与其他函数/文件重名。 </span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 命令文件的文件名不要与变量重名。 </span></div><h2  class = 'S7' id = 'H_624C6BB5' ><span style=' font-family: monospace;'>4.函数文件</span></h2><div  class = 'S1'><span style=' font-family: monospace;'>* 定义一个函数，需要制定输入参数和输出参数。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 函数文件具有独立的内部变量空间。 </span></div><h2  class = 'S7' id = 'H_2DBF2B0B' ><span style=' font-family: monospace;'>5.函数文件的调用</span></h2><div  class = 'S1'><span style=' font-family: monospace;'>* 输入函数文件的文件名并代入指定的实际参数即可。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* MATLAB支持函数的嵌套调用和递归调用。</span></div><h2  class = 'S7' id = 'H_3EDB3081' ><span style=' font-family: monospace;'>6.函数文件的格式</span></h2><div  class = 'S1'><span style=' font-family: monospace;'>* 输出参数多于一个时，应使用中括号； </span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 输入参数多于一个时用逗号隔开； </span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 函数名与所存的m文件名应同名； </span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 函数体中可使用错误提示信息：warning（‘message’）。 </span></div><h2  class = 'S7' id = 'H_781158FE' ><span style=' font-family: monospace;'>7.函数文件与命令文件的区别    </span></h2><div  class = 'S1'><span style=' font-family: monospace;'>* 函数文件用function关键字定义，命令文件则不用；</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 函数文件可以传递参数，而命令文件不能传递参数；</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 函数文件中定义和使用的是局部变量，只在函数内有效。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 命令文件中的变量都是全局变量，退出命令文件后仍然有效。 </span></div><h2  class = 'S7' id = 'H_96D9D7DB' ><span style=' font-family: monospace;'>8.函数文件与命令文件的创建   </span></h2><div  class = 'S1'><span style=' font-weight: bold; font-family: monospace;'>命令文件的创建基本步骤如下：</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 打开MATLAB的M文件编辑器或任何一个文本编辑器；</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 写入MATLAB的命令代码；</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 保存文件名为filename.m即完成了命令文件的创建。</span></div><div  class = 'S1'><span style=' font-family: monospace;'></span></div><div  class = 'S1'><span style=' font-weight: bold; font-family: monospace;'>函数文件的创建基本步骤如下：</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 打开MATLAB的M文件编辑器或任何一个文本编辑器；</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 写入MATLAB的代码，注意第一行必须用function关键字，并定义函数四要素；</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 保存文件名为funcname.m，即完成了命令文件的创建。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>注意，文件名与函数名应同名，最好将M文件放置在MATLAB搜索路径下。</span></div><h1  class = 'S0' id = 'T_7BA8B706' ><span style=' font-family: monospace;'>函数基础</span></h1><div  class = 'S1'><span style=' font-weight: bold; font-family: monospace;'>MATLAB常用的基本数学函数</span><span style=' font-family: monospace;'> </span></div><div  class = 'S1'><span style=' font-family: monospace;'>abs(x)：     纯量的绝对值或向量的长度 </span></div><div  class = 'S1'><span style=' font-family: monospace;'>sqrt(x)：    开平方 </span></div><div  class = 'S1'><span style=' font-family: monospace;'>real(z)：    复数z的实部 </span></div><div  class = 'S1'><span style=' font-family: monospace;'>imag(z)：    复数z的虚部 </span></div><div  class = 'S1'><span style=' font-family: monospace;'>conj(z)：    复数z的共轭复数 </span></div><div  class = 'S1'><span style=' font-family: monospace;'>angle(z)：   复数z的相角</span></div><div  class = 'S1'><span style=' font-family: monospace;'>round(x)：   四舍五入至最近整数 </span></div><div  class = 'S1'><span style=' font-family: monospace;'>fix(x)：     无论正负，舍去小数至最近整数 </span></div><div  class = 'S1'><span style=' font-family: monospace;'>floor(x)：   地板函数，即舍去正小数至最近整数 </span></div><div  class = 'S1'><span style=' font-family: monospace;'>ceil(x)：    天花板函数，即加入正小数至最近整数 </span></div><div  class = 'S1'><span style=' font-family: monospace;'>rat(x)：     将实数x化为多项分数展开</span></div><div  class = 'S1'><span style=' font-family: monospace;'>rats(x)：    将实数x化为分数表示 </span></div><div  class = 'S1'><span style=' font-family: monospace;'>sign(x)：    符号函数 (Signum function)。 </span></div><div  class = 'S1'><span style=' font-family: monospace;'>rem(x,y)：   求x除以y的馀数 </span></div><div  class = 'S1'><span style=' font-family: monospace;'>gcd(x,y)：   整数x和y的最大公因数 </span></div><div  class = 'S1'><span style=' font-family: monospace;'>lcm(x,y)：   整数x和y的最小公倍数 </span></div><div  class = 'S1'><span style=' font-family: monospace;'>exp(x)：     自然指数 </span></div><div  class = 'S1'><span style=' font-family: monospace;'>pow2(x)：    2的指数 </span></div><div  class = 'S1'><span style=' font-family: monospace;'>log(x)：     以e为底的对数，即自然对数 </span></div><div  class = 'S1'><span style=' font-family: monospace;'>log2(x)：    以2为底的对数 log10(x)：以10为底的对数 </span></div><h2  class = 'S8' id = 'H_D494CFD3' ><span style=' font-family: monospace;'>1.匿名函数</span></h2><div  class = 'S1'><span style=' font-family: monospace;'>通常只由一句很简单的声明语句组成。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 匿名函数也可以接受多个输入和输出函数。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 匿名函数的优点是不需要维护一个函数文件。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>【调用格式】</span></div><div  class = 'S1'><span style=' font-family: monospace;'>fhandle = @(arglist)expr</span></div><div  class = 'S1'><span style=' font-family: monospace;'>例题：创建匿名函数myfuncHandle,输入参数为</span><span style="font-family: STIXGeneral, STIXGeneral-webfont, serif; font-style: italic; font-weight: 400; color: rgb(0, 0, 0);">x</span><span style=' font-family: monospace;'>，函数完成计算</span><span mathmlencoding="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;inline&quot;&gt;&lt;mrow&gt;&lt;msup&gt;&lt;mrow&gt;&lt;mi mathvariant=&quot;italic&quot;&gt;x&lt;/mi&gt;&lt;/mrow&gt;&lt;mrow&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/mrow&gt;&lt;/msup&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mi mathvariant=&quot;italic&quot;&gt;x&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;/math&gt;" style="vertical-align:-5px"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJEAAAAqCAYAAACz1bmVAAAGCklEQVR4Xu2cZ4hkRRSFvzWLCRMGTAgiohgwJ1TMiFlRMaJgzmLGgGLOoqCuIpjFjAiKiAHFAP4wIQYwi2LEgDnwwX3Q9E73dnfV655+XfVndmb61VSdd+qGc2/tDMooCCQiMCPx+fJ4QYBCokKCZAQKiZIhLBMUEhUOJCNQSJQMYZmgDhItABwEHAxsCHwPPAZcB7wJ/FdgbxYCuUm0MHANsBvwBjA/sFFA9kkQ6/lmQVh2k5NEznU8sDpwNvBNwLsycD2wE/AIcBjwQ4G+OQjkJNEywLXAucB7bRBtADwaP9sZeL05EJad5CTROsD6wMwp4p4lgXuAbYDNgJcK9M1BICeJuqGyOHA3sASwL/BhcyAsOxkWiVYF7gcMqk8D/ijQNweBYZFoD+BqYP/iyppDnmonwyDRosDNEUxfBfzdPBgne0d1k2gu4BRghXBjv05zuNW1dgT2CaF0sbCcDwIPAD9N8/XnXJ5x7KHAPMBF3Sauk0TOvR+wBXBmKNc5N5l7rhVDKN29w8RmlGpc7fJF7nWMej7JcwhwHCAmSjYXjopEkkfQTwW+HjUys/n7lmpU2leJr68Cc4fabiKgdOHQGh3RULF03qgoLAXoQU4CFholiSTQUcAJUxBokTCRlaI9CL9UwS8J9+JLTlXAdw0AXXM74QXVmM7P/AxoqZ4ZZNEZn1kXuBh4LVzN7xnmnjPm+Ado1fVGYok2jtNq6eOLts0Zc5wMPB7F2EH3XkkGX0XG992gE0V97/KwMi90mGfrKNl4Ml2/VmuUY1PgxSC3FuO3zIupdL3tR2GJPCE3drE0+tiXgWOBlCA7J4lck/7/vC5rWjbE0i17ATXzC51qusaSyHjizshquuG4J/BwItA5SdTLUlpPpi0ud/TyUI2fGRsSGWwaUBoDaNb0k0btuiKHpt2g+Rjg6TjNKXFOP5gPm0SVJfLvdiogq4dtAuwNaLGMUxRXq2Lz0sAFUfa5DTgrwQ2NDYmWi7f6F3AFcGBYGknzbwS2xjhV45mNaJ/2w4SEzw6bRLppD89TXVyxlvhHwMThFmCrwOicqBkqtBq7bAu8AhyeoDuNDYla37Fp7U1xqiSTp/Fz4N4RdSoOk0TqXQav9kr1UrYxy1FXURt7AjgaODG6O3M15I0liaqTaM+Q6e63wPkjLGEMk0QrAXeFJeq1bLNLkOat6PA067s144EbSxK1ZifPhmtrT98TvNMsj7YGsinzSviUFFgBTslft60e1WtGuSZgqUQXZxBu9tdPyaQ6JGulbD4hk6wlxZ8P8BRqmtVIzgD+TNxgt8enA4mqss1eIZz2o7obZJup2hI8iK7USBIJqJnYZcCTYYl0aaMaw3Bn3VT32e1bC3ZlBOGp1rAxOtF6YZ4V5j4APJ1e/xnVqJtEEshAWiviLZV+hyUSLZEyyHMRkH/Z7yRdPj92MZG1I++MqQXZGqAWckAouBlx6WuqOklk2UZ3bQzUqWKvpVH6UOpoH6tFau/NFut7C0Z7Sc6+8rEikdVcwfw4sg3jItN9wVH/EMTNA+x+Yoa+GDPFh+sikVmo+zI9f7fDIhVh1cq8kNBe+PV3l4bVfies0Q7AkZHViqf6kV0C/QTa7UuZ1iQy9vECopVcMxH7gbx8eHoIZZVeVMVF3jHbLpTYYfZN10GiNSKO8YC83YFAShxmWlbPVZ3nCHFRdVrLZAOeB8tWYEelFxkX+TvdnEnDDYnp/rQm0dpxP8yOvvdDgW5tj6jujwmmV6N/CXCGaYV8OblJpAu6vYe6n39bK+Lh+iiyLwVXCeT3/q5VCrC3/KFoIfHg2XWgletVKuhksesmkde/vFihROHF066XK9o7G41/dFmKZfeFzuDGq6FeYrXbEoeg+O/PUn3TAM/nJNHyQSDbPXoZrRKH67BrQdD9annInqNqWG/0Z1prSSq2/t8EqaMOEqm0Gw8qS3hITKIc7kdCqQ8a182SaNTZHpsKVLfnczel1bnWOuauoylt4HWOK4kG3nB5MD8ChUT5MZ24GQuJJu6V599wIVF+TCduxkKiiXvl+TdcSJQf04mb8X/KHos6x/MPgwAAAABJRU5ErkJggg==" width="72.5" height="21" /></span><span style=' font-family: monospace;'>。</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>myfuncHandle  = @(x)(x^2+2*x+1)</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>myfuncHandle(10)</span></span></div></div></div><h2  class = 'S7' id = 'H_21CB3881' ><span style=' font-family: monospace;'>2.主函数和子函数</span></h2><div  class = 'S1'><span style=' font-family: monospace;'>在一个单个的M文件中我们可以定义多个函数。如果多个函数出现在一个文件中，那么第一个定义的（最好与M文件同名的）函数为主函数，其下面定义的的函数称为子函数。</span></div><div  class = 'S1'><span style=' font-family: monospace;'> 注意：子函数只能被同一文件中的函数调用。</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>out1 = mainFunc(5)</span></span></div></div></div><h2  class = 'S7'><span style=' font-family: monospace;'>3.私有函数</span></h2><div  class = 'S1'><span style=' font-family: monospace;'>指存放在private子目录中的函数。</span></div><div  class = 'S1'><span style=' font-weight: bold; font-family: monospace;'>注意</span><span style=' font-family: monospace;'>： 私有函数只能由其父目录中的函数调用；在函数调用时优先于其他路径上的函数。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>调用次序： 子函数 -&gt; 私有函数 -&gt; 搜索路径中的函数。</span></div><h2  class = 'S7'><span style=' font-family: monospace;'>4.函数的调用</span></h2><div  class = 'S1'><span style=' font-weight: bold; font-family: monospace;'>函数调用顺序：</span></div><div  class = 'S1'><span style=' font-family: monospace;'>*  变量</span></div><div  class = 'S1'><span style=' font-family: monospace;'>*  子函数</span></div><div  class = 'S1'><span style=' font-family: monospace;'>*  私有函数</span></div><div  class = 'S1'><span style=' font-family: monospace;'>*  当前目录里的函数</span></div><div  class = 'S1'><span style=' font-family: monospace;'>*  搜索其他路径</span></div><div  class = 'S1'><span style=' font-weight: bold; font-family: monospace;'>调用语法：</span></div><div  class = 'S1'><span>* funcname</span><span> </span><span style=' font-family: monospace;'>参数</span><span>1 </span><span style=' font-family: monospace;'>参数</span><span>2 … </span><span style=' font-family: monospace;'>参数</span><span>n</span></div><div  class = 'S1'><span>* funcname</span><span>(</span><span style=' font-family: monospace;'>参数</span><span>1 </span><span style=' font-family: monospace;'>参数</span><span>2 … </span><span style=' font-family: monospace;'>参数</span><span>n)</span></div><div  class = 'S1'><span>* output = funcname</span><span>(</span><span style=' font-family: monospace;'>参数</span><span>1</span><span style=' font-family: monospace;'>，参数</span><span>2</span><span style=' font-family: monospace;'>，</span><span>…,</span><span style=' font-family: monospace;'>参数</span><span>n)</span></div><div  class = 'S1'><span>* [out1,out2,…,</span><span>outn</span><span>] = funcname</span><span>(</span><span style=' font-family: monospace;'>参数</span><span>1</span><span style=' font-family: monospace;'>，参数</span><span>2</span><span style=' font-family: monospace;'>，</span><span>…,</span><span style=' font-family: monospace;'>参数</span><span>n)</span></div><h2  class = 'S7'><span style=' font-family: monospace;'>5.函数的参数传递</span></h2><div  class = 'S1'><span style=' font-family: monospace;'>* 按值传递机制：当一个函数调用发生时，MATLAB 将会复制实参生成一个副本，然后把它们传递给函数。这次复制是非常重要的，因为它意味着虽然函数修改了输入参数，但它并没有影响到调用者的原值。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>* 防止了因函数修改变量而导致的严重错误。</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>a = 2; </span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>b = 6;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>fprintf(</span><span style="color: rgb(160, 32, 240);">'Before sample: a = %f, b = %f\n'</span><span>, a, b);</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>out = sample(a, b);</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>fprintf(</span><span style="color: rgb(160, 32, 240);">'After sample: a = %f, b = %f\n'</span><span>,a,b);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>fprintf(</span><span style="color: rgb(160, 32, 240);">'After sample: out = %f \n'</span><span>, out);</span></span></div></div></div><h2  class = 'S8'><span>6.</span><span style=' font-family: monospace;'>函数的参数可调性</span></h2><div  class = 'S1'><span>* MATLAB</span><span style=' font-family: monospace;'>在函数调用上有一个</span><span style=' font-family: monospace;'>特色</span><span style=' font-family: monospace;'>，函数所传递参数数目的</span><span style=' font-family: monospace;'>可调性</span><span style=' font-family: monospace;'>，即</span></div><div  class = 'S1'><span style=' font-family: monospace;'>  传递的参数的个数可以任意。</span></div><div  class = 'S1'><span style=' font-weight: bold;'>MATLAB</span><span style=' font-weight: bold; font-family: monospace;'>提供了两对永久变量：</span></div><div  class = 'S1'><span>* nargin</span><span style=' font-family: monospace;'>和</span><span>varargin</span><span style=' font-family: monospace;'>：用于检查被调用函数的输入参数数目</span><span>,</span><span style=' font-family: monospace;'>检查函数体内的被调用时的输入参数的值。</span></div><div  class = 'S1'><span>* nargout</span><span style=' font-family: monospace;'>和</span><span>varargout</span><span style=' font-family: monospace;'>：用于检查被调用函数的输出参数的个数和每个输出参数</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>area = circle(5, </span><span style="color: rgb(160, 32, 240);">'b'</span><span>)</span></span></div></div></div><h2  class = 'S8'><span style=' font-family: monospace;'>7.程序设计的基本步骤</span></h2><div  class = 'S1'><span style=' font-family: monospace;'>（1）清晰地陈述你要解决的问题</span></div><div  class = 'S1'><span style=' font-family: monospace;'>（2）确定程序的输入输出</span></div><div  class = 'S1'><span style=' font-family: monospace;'>（3）为你的程序设计算法</span></div><div  class = 'S1'><span style=' font-family: monospace;'>（4）将算法转化为程序语言</span></div><div  class = 'S1'><span style=' font-family: monospace;'>（5）调试程序</span></div><div  class = 'S1'><span style=' font-family: monospace;'>  </span></div><h1  class = 'S0'><span>函数脚本</span></h1><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span style="color: rgb(60, 118, 61);">% 脚本名称：arith_1.m</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(60, 118, 61);">% 脚本功能：任意输入一个正整数，如果是偶数，用2除</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(60, 118, 61);">%                              如果是奇数，用3乘再加1</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(60, 118, 61);">%           反复重复这个过程，直到得到的数为1</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(60, 118, 61);">%           将依次得到这个数的数列返回</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(60, 118, 61);">% 脚本作者：左手Python右手R</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(60, 118, 61);">% 创建时间：2018年07月12日19:32</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span style="color: rgb(60, 118, 61);">% 修改时间：</span></span></div></div></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">function </span><span>y = arith_1(x)</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    </span><span style="color: rgb(60, 118, 61);">% 健壮性判断</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    </span><span style="color: rgb(0, 0, 255);">if </span><span>round(x) ~= x</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>        error(</span><span style="color: rgb(160, 32, 240);">'Please enter an integer!'</span><span>);</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    </span><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    </span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    k = 1;                  </span><span style="color: rgb(60, 118, 61);">% 赋序列初始索引</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    y(k) = x;               </span><span style="color: rgb(60, 118, 61);">% 输入</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    </span><span style="color: rgb(0, 0, 255);">while </span><span>(x~=1) </span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>        k = k + 1;          </span><span style="color: rgb(60, 118, 61);">% 索引递增</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>        </span><span style="color: rgb(0, 0, 255);">if </span><span>rem(x, 2) == 0   </span><span style="color: rgb(60, 118, 61);">% 求余</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>            x = x/2;        </span><span style="color: rgb(60, 118, 61);">% 执行偶数对应操作</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>            y(k) = x;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>        </span><span style="color: rgb(0, 0, 255);">else </span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>            x = x*3 + 1;    </span><span style="color: rgb(60, 118, 61);">% 执行奇数对应操作</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>            y(k) = x;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>        </span><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    </span><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div></div><div  class = 'S3'><span></span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">function </span><span>y = mainFunc(x)</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    y = x*subFunc(x);</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">function </span><span>u = subFunc(w)</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    u = w/2;</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div></div><div  class = 'S3'><span></span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">function </span><span>[y] = </span><span class="warning_squiggle_rte">sin_cos</span><span>(x)</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(60, 118, 61);">%SIN_COS a small calculation</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(60, 118, 61);">%   cal cos then sin and return</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(60, 118, 61);">%   input: x</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(60, 118, 61);">%   output: y</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>y = sin(cos(x));</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div></div><div  class = 'S3'><span></span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">function </span><span>out = sample(a, b)</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>fprintf(</span><span style="color: rgb(160, 32, 240);">'In Sample, before compute: a = %f, b = %f \n'</span><span>, a, b);</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>a = b + 2*a;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>b = a * b;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>out = [a  b];</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>fprintf(</span><span style="color: rgb(160, 32, 240);">'In Sample, after compute: a = %f, b = %f\n'</span><span>, a, b);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div></div><div  class = 'S3'><span></span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">function </span><span>s = circle(r, c)</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(60, 118, 61);">%CIRCLE plot a circle of radii r, with color c</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(60, 118, 61);">% input: r, radius</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(60, 118, 61);">%        c, color</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(60, 118, 61);">% output: s, area</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">if </span><span>nargin == 1</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    c = </span><span style="color: rgb(160, 32, 240);">'b'</span><span>;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>clf</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>t = 0:pi/100:2*pi;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>x </span><span class="warning_squiggle_rte warningHighlight">=</span><span> r*exp(</span><span class="warning_squiggle_rte warningHighlight">i</span><span>*t)</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">if </span><span>nargout == 0</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    plot(x, c)</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">else</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    s = pi*r*r;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>    fill(real(x), imag(x), c)    </span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>axis(</span><span style="color: rgb(160, 32, 240);">'square'</span><span>)</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span style="color: rgb(0, 0, 255);">end</span></span></div></div></div><div  class = 'S3'><span style=' font-family: monospace;'></span></div><div  class = 'S1'></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% |MATLAB基础教程|
+% |作者：To_Fourier|
+% 
+% |创建时间：2020年7月26日20：57|
+% 
+% |修改时间：2020年7月26日23：52|
+% 
+% |个人博客：|<https://qiuming.blog.csdn.net/ |https://qiuming.blog.csdn.net/|>
+% 
+% |GitHub：|<https://github.com/QiuMingZS |https://github.com/QiuMingZS|>
+%% |MATLAB概述|
+% |1.命名：|
+% 
+% |MATLAB = MATrix + LABoratory|
+% 
+% |2.运行平台：|
+% 
+% |Windows, Linux, MacOS|
+% 
+% |3.特点：|
+% 
+% |1）强大的数值运算功能；|
+% 
+% |2）强大的图形处理能力；|
+% 
+% |3）高级但简单的编程环境；|
+% 
+% |4）丰富的工具箱|
+% 
+% |4.视窗可视化环境|
+% 
+% |* 标题栏（Title Bar）|
+% 
+% |* 菜单（Menu）|
+% 
+% |* 工具栏（ToolBar）|
+% 
+% |* 视图一：current directory/workspace|
+% 
+% |* 视图二：command window| 
+% 
+% |* 视图三：command history|
+%% |Command Window|
+% |1.命令提示符 >>|
+% 
+% |2.上下左右箭头, Home, End, Delete, Insert|
+% 
+% |3.清空命令行窗口|
+
+clc
+%% 
+% |4.清空工作区|
+
+clear
+%% 
+% |5.查看帮助|
+
+help sin
+%% 
+% |6.查找|
+
+% lookfor sin
+%% 
+% |7.查看相关文档|
+
+doc sin
+%% 
+% |8.分号取消输出|
+
+a = 5;
+%% 
+% |9.续行符|
+
+b = 1 + 2 + 3 + ...
+    5 + 6
+%% 
+% |10.命令之间的逗号|
+
+c = 5, d = 6
+%% 
+% |11.查看MATLAB搜索路径|
+
+path
+%% 
+% |12.CTRL + C强制终止|
+% 
+% |13.退出MATLAB|
+
+% exit
+% quit
+% 直接关闭
+%% |一个简单的例子|
+% |*要求：*|
+% 
+% |编写函数文件arith_1.m，任意输入一个正整数，如果是1，直接输出1。|
+% 
+% |否则：如果是偶数，用2除，如果是奇数，用3乘再加1，反复这个过程，直到所得到的数为1，将依次得到的这个数列返回（数列中包括输入的正整数）|
+% 
+% |*代码示例：*|
+
+arith_1(65)
+%% |MATLAB的工作空间|
+% |* 当MATLAB启动后，系统会自动建立一个工作空间，这时的工作空间内只包含系统所提供的一些特殊变量，如pi，eps，nan，i等。|
+% 
+% |* 随着用户的使用，逐渐增加一些用户自己定义的变量。|
+% 
+% |* 使用who，whos可以查看到当前工作空间所有变量的情况。|
+% 
+% |* 使用clear可以删除全部或部分工作空间中的变量。|
+% 
+% |* 关闭MATLAB，释放工作空间，所有变量会被释放。|
+% 
+% 
+%% |MATLAB的搜索路径|
+
+path
+%% 
+% |MATLAB遇到一个命令（test）时，其处置过程为：| 
+% 
+% |1.将test视为使用者自定义的变量。| 
+% 
+% |2.若test不是使用者自定义的变量，将其视为系统定义的常量。| 
+% 
+% |3.若test不是常量，检查其是否为当前工作目录下的M文件。| 
+% 
+% |4.若不是，则由搜寻路径寻找是否有test.m的文件。| 
+% 
+% |5.若在搜寻路径中找不到，则MATLAB会印出错误讯息。|
+% 
+% |* 处置过程可能因版本不同而略有不同。|  
+%% |变量|
+% |MATLAB特殊之处(相较于C语言)：无需进行变量声明。|
+% 
+% |* 遇到新变量名时，自动生成变量，并指定合适的存储空间。|
+% 
+% |* 如变量早已存在，则自动更新。|
+% 
+% 
+%% |1.系统特殊变量| 
+
+% ans
+1 + 2 + 3 + 4 + 5
+
+% 其他的系统特殊变量
+pi
+inf
+eps
+nan
+NaN
+i
+j
+%% |2.变量命名规则|
+% |* 变量名由字母、数字和下划线组成。|
+% 
+% |* 字母间不可留空格且第一个字符必须为字母|
+% 
+% |* 区分大小写。|
+% 
+% |* 变量名的长度上限为n个字符。|
+% 
+% |* 变量名不能为中文；|
+% 
+% |* 系统变量名不要和自定义重名。|
+% 
+% |*万一自定义变量名和系统变量名一样结果会怎样？怎么办?*|
+
+isvarname  myVarName  
+isvarname  7myVarName
+%% |3.获取当前变量|
+% |命令行直接键入变量名。|
+
+a = 5;
+a
+%% |4.变量的精度|
+% |控制显示精度函数： format|
+% 
+% |控制精度计算的函数：|
+% 
+% |digits(n):设置缺省的精度；|
+% 
+% |vpa(S,n):将S表示为n位有效位数的形式。|
+
+x = 0;
+for n = 1:82
+    x = x + 0.01;
+end
+x == 0.82  
+format long
+x
+   
+x=0;
+for n = 1:82
+    x = x + 1;
+end
+x == 82
+%% |5.查看变量|
+% |who：查看当前工作区（workspace）的变量。|
+% 
+% |whos：查看当前变量的详细信息。|
+%% |6.清除变量|
+% |clear：清除所有定义过的变量。|
+% 
+% |clear 变量名：清除某个变量。|
+%% |7.变量的初始化（三种方式）|
+% |* 用赋值语句初始化变量。|
+% 
+% |* 用input 函数从键盘输入初始化变量。|
+
+in1 = input('enter data:');
+in2 = input('enter data:', 's')
+in1+in2
+%% 
+% |* 从文件读取一个数据。|
+%% |8.变量的作用域|
+% |（1）局部变量（Local）：在函数中使用的变量，|
+% 
+% |只能在函数的范围内使用。|
+% 
+% |（2）全局变量（Global）：在命令文件或工作空间中定义。|
+% 
+% |用global定义全局变量。|
+
+global  Gvar1 Gvar2 Gvar3
+%% 
+% |（3）永久变量（Persistent）：只能在函数文件中定义和使用，只允许定义它的函数存取。只有清除函数或者关闭MATLAB时，才能从内存中清除它们。|
+
+% persistent perVar
+%% 
+% |*TIPS：尽量不使用全局变量和永久变量！*|
+% 
+% 
+%% |*数据的读写*|
+% |*思考：*|
+% 
+% |关闭MATLAB，释放工作空间，所有变量会被释放。|
+% 
+% |这样会出现什么问题？|
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% |*解决办法：*|
+% 
+% |将工作空间中的变量存储到文件中。|
+% 
+% |这样，即使退出了MATLAB系统，变量依然存在。需要使用时，将这些变量从文件中读取出来即可|
+%% |1.save命令|
+% |*功能*：将变量以二进制的方式存储至后缀名为.mat的文档中。|
+% 
+% |*格式*：save filename|
+% 
+% |*注意事项：*|
+% 
+% |1) 存储文件为.mat的二进制mat文档中。|
+% 
+% |2) 若文件名缺省，则自动存储到matlab.mat中。|
+% 
+% |3) 若为save filename x 则只将变量x存储到文件中去。|
+% 
+% |4 ) 若为save filename u w –append 则将变量u，w添加到文件名为filename.mat的文件中。|
+% 
+% |5 ) 若为save filename u w –ascii 则将变量u，w保存为filename的8位ASCII文档。|
+% 
+% |6) 若为save filename u w –ascii -double则将变量u，w保存为filename的16位ASCII文档。|
+% 
+% |*Note：ASCII文档特色（使用-ascii后缀）：*|
+% 
+% |（1）ASCII文档可以看到文档内容。|
+% 
+% |（2）默认的存储格式是二进制的mat文件。存储ASCII文档必须加-ascii。|
+% 
+% |（3）save  -ascii通常只存为一个变量，原有变量名消失。load载入时，取用文件名为变量名。|
+% 
+% |（4）对于复数，save -ascii后只存实部，虚部抛弃。|
+% 
+% |（5）ASCII文件通常比二进制文件大,二进制文档较小，读取速度快。|
+% 
+% |*建议：*|
+% 
+% |尽量使用二进制文件存储MATLAB变量。|
+%% |2.load命令|
+% |*功能*：读取保存在文件中的变量。|
+% 
+% |*格式*：load filename|
+% 
+% |load filename –ascii|
+% 
+% |load filename –mat|
+% 
+% |*注意事项*：|
+% 
+% |首先，MATLAB在系统默认路径中自动寻找名称为filename.mat的二进制文件。|
+% 
+% |其次，若无该文件，则找filename的文件，用ASCII方式载入。|
+%% |MATLAB的三种控制结构|
+% |按照程序设计的观点, 任何算法功能都可以通过|
+% 
+% |程序模块组成的三种基本程序结构的组合来实现:|
+% 
+% |* 顺序结构：程序按程序语句或模块在执行流中的 顺序逐个执行。| 
+% 
+% |* 选择结构：程序按设定的条件实现程序执行流的多路分支。| 
+% 
+% |* 循环结构：程序按给定的条件重复地执行指定的程序段或模块。|
+%% |1.顺序结构|
+
+a = 0:0.01:2*pi
+sin_a = sin(a)
+plot(sin_a)
+%% |2.选择结构|
+% |* if语句|
+
+clear
+n = input('输入n= '); 			
+if n >= 90
+    r = 'A'
+elseif n >= 80
+    r = 'B'
+elseif n >= 70
+    r = 'C'
+elseif n >= 60
+    r = 'D'
+else
+    r = 'E'
+end
+%% 
+% |* switch语句|
+
+clear
+n = input('输入n= '); 
+lowline = floor(n/10) 
+switch lowline
+    case {10, 9}
+        r = 'A'
+    case 8
+        r = 'B'
+    case 7
+        r = 'C'
+    case 6
+        r = 'D'
+    otherwise
+        r = 'E'
+end
+%% |3.循环结构|
+% |* for语句|
+
+clear
+sum = 0;
+for i = 1:1:100
+    sum = sum + i;
+end
+sum
+%% 
+% |* while语句|
+
+clear
+sum = 0; 
+i = 0;
+while i < 100
+    i = i + 1;
+    sum = sum + i;
+end
+sum
+%% |4.break和continue语句|
+% |* break语句用于立即跳出含该break语句的循环语句。|
+% 
+% |* continue语句用于提前结束当前循环。|
+
+for ii = 1:5
+    if ii == 3
+        break
+    end
+    fprintf('ii = %d \n', ii)
+end
+disp('End of loop!')
+%% 
+% 
+
+for ii = 1:5
+    if ii == 3
+        continue
+    end
+    fprintf('ii = %d \n', ii)
+end
+disp('End of loop!')
+%% |5.return语句|
+% |用于终止当前命令的执行, 在任何地方遇到return时程序立即终止。|
+%% |6.try-catch语句|
+% |* 用于实现异常处理机制。|
+% 
+% |* 需要检测的程序必须放在try语句块中执行。|
+% 
+% |* 异常由catch语句捕获并处理。|
+
+clear
+N = input('please input N=')
+A = magic(3)
+try
+    A_N=A(N,N)
+catch 
+    fprintf('You Number is too big!')
+    A_end=A(end,end)
+end
+%% |M文件的定义、调用和调试|
+% |*主要类型：*|
+% 
+% |* 命令文件（脚本文件）|
+% 
+% |* 函数文件|
+% 
+% |*编程原则：*|
+% 
+% |* 百分号 % 后面的内容是程序的注释信息。|
+% 
+% |* clear命令用于清除变量，通常用于主程序开头。|
+% 
+% |* 充分利用MATLAB提供的函数来进行运算。|
+% 
+% |* 在语句后输入分号，使中间结果不显示在屏幕上。|
+% 
+% |* 输入少量数据时，可以使用input命令；|
+% 
+% |* 大量的数据输入最好通过子程序完成，在主程序中只需要调用该子程序即可。|
+% 
+% |* 尽量采用主程序调用子程序的方法，使主程序清晰易读，便于维护。|
+% 
+% |* 充分利用调试功能对程序进行调试，有的时候隐含的逻辑错误更不容易发现，危害却更大。|
+% 
+% |* 设置MATLAB的工作路径和当前工作目录，方便操作和运行程序。|
+%% |1.命令文件（脚本文件）|
+% |* MATLAB代码按顺序组成的命令序列。|
+% 
+% |* 不接受输入参数和输出参数。|
+% 
+% |* 与MATLAB工作空间共享变量空间。|
+%% |2.命令文件的调用方法|
+% |* 在MATLAB命令窗口直接输入命令文件的文件名即可。| 
+%% |3.Tips:|
+% |* 命令文件最好保存在当前目录下。| 
+% 
+% |* 命令文件的文件名不要与其他函数/文件重名。| 
+% 
+% |* 命令文件的文件名不要与变量重名。| 
+%% |4.函数文件|
+% |* 定义一个函数，需要制定输入参数和输出参数。|
+% 
+% |* 函数文件具有独立的内部变量空间。| 
+%% |5.函数文件的调用|
+% |* 输入函数文件的文件名并代入指定的实际参数即可。|
+% 
+% |* MATLAB支持函数的嵌套调用和递归调用。|
+%% |6.函数文件的格式|
+% |* 输出参数多于一个时，应使用中括号；| 
+% 
+% |* 输入参数多于一个时用逗号隔开；| 
+% 
+% |* 函数名与所存的m文件名应同名；| 
+% 
+% |* 函数体中可使用错误提示信息：warning（‘message’）。| 
+%% |7.函数文件与命令文件的区别|    
+% |* 函数文件用function关键字定义，命令文件则不用；|
+% 
+% |* 函数文件可以传递参数，而命令文件不能传递参数；|
+% 
+% |* 函数文件中定义和使用的是局部变量，只在函数内有效。|
+% 
+% |* 命令文件中的变量都是全局变量，退出命令文件后仍然有效。| 
+%% |8.函数文件与命令文件的创建|   
+% |*命令文件的创建基本步骤如下：*|
+% 
+% |* 打开MATLAB的M文件编辑器或任何一个文本编辑器；|
+% 
+% |* 写入MATLAB的命令代码；|
+% 
+% |* 保存文件名为filename.m即完成了命令文件的创建。|
+% 
+% 
+% 
+% |*函数文件的创建基本步骤如下：*|
+% 
+% |* 打开MATLAB的M文件编辑器或任何一个文本编辑器；|
+% 
+% |* 写入MATLAB的代码，注意第一行必须用function关键字，并定义函数四要素；|
+% 
+% |* 保存文件名为funcname.m，即完成了命令文件的创建。|
+% 
+% |注意，文件名与函数名应同名，最好将M文件放置在MATLAB搜索路径下。|
+%% |函数基础|
+% |*MATLAB常用的基本数学函数* 
+% 
+% |abs(x)：     纯量的绝对值或向量的长度| 
+% 
+% |sqrt(x)：    开平方| 
+% 
+% |real(z)：    复数z的实部| 
+% 
+% |imag(z)：    复数z的虚部| 
+% 
+% |conj(z)：    复数z的共轭复数| 
+% 
+% |angle(z)：   复数z的相角|
+% 
+% |round(x)：   四舍五入至最近整数| 
+% 
+% |fix(x)：     无论正负，舍去小数至最近整数| 
+% 
+% |floor(x)：   地板函数，即舍去正小数至最近整数| 
+% 
+% |ceil(x)：    天花板函数，即加入正小数至最近整数| 
+% 
+% |rat(x)：     将实数x化为多项分数展开|
+% 
+% |rats(x)：    将实数x化为分数表示| 
+% 
+% |sign(x)：    符号函数 (Signum function)。| 
+% 
+% |rem(x,y)：   求x除以y的馀数| 
+% 
+% |gcd(x,y)：   整数x和y的最大公因数| 
+% 
+% |lcm(x,y)：   整数x和y的最小公倍数| 
+% 
+% |exp(x)：     自然指数| 
+% 
+% |pow2(x)：    2的指数| 
+% 
+% |log(x)：     以e为底的对数，即自然对数| 
+% 
+% |log2(x)：    以2为底的对数 log10(x)：以10为底的对数| 
+%% |1.匿名函数|
+% |通常只由一句很简单的声明语句组成。|
+% 
+% |* 匿名函数也可以接受多个输入和输出函数。|
+% 
+% |* 匿名函数的优点是不需要维护一个函数文件。|
+% 
+% |【调用格式】|
+% 
+% |fhandle = @(arglist)expr|
+% 
+% |例题：创建匿名函数myfuncHandle,输入参数为|$x$|，函数完成计算|$x^2 +2x+1$|。|
+
+myfuncHandle  = @(x)(x^2+2*x+1)
+myfuncHandle(10)
+%% |2.主函数和子函数|
+% |在一个单个的M文件中我们可以定义多个函数。如果多个函数出现在一个文件中，那么第一个定义的（最好与M文件同名的）函数为主函数，其下面定义的的函数称为子函数。|
+% 
+% |注意：子函数只能被同一文件中的函数调用。|
+
+out1 = mainFunc(5)
+%% |3.私有函数|
+% |指存放在private子目录中的函数。|
+% 
+% |*注意*： 私有函数只能由其父目录中的函数调用；在函数调用时优先于其他路径上的函数。|
+% 
+% |调用次序： 子函数 -> 私有函数 -> 搜索路径中的函数。|
+%% |4.函数的调用|
+% |*函数调用顺序：*|
+% 
+% |*  变量|
+% 
+% |*  子函数|
+% 
+% |*  私有函数|
+% 
+% |*  当前目录里的函数|
+% 
+% |*  搜索其他路径|
+% 
+% |*调用语法：*|
+% 
+% * funcname |参数|1 |参数|2 … |参数|n
+% 
+% * funcname(|参数|1 |参数|2 … |参数|n)
+% 
+% * output = funcname(|参数|1|，参数|2|，|…,|参数|n)
+% 
+% * [out1,out2,…,outn] = funcname(|参数|1|，参数|2|，|…,|参数|n)
+%% |5.函数的参数传递|
+% |* 按值传递机制：当一个函数调用发生时，MATLAB 将会复制实参生成一个副本，然后把它们传递给函数。这次复制是非常重要的，因为它意味着虽然函数修改了输入参数，但它并没有影响到调用者的原值。|
+% 
+% |* 防止了因函数修改变量而导致的严重错误。|
+
+a = 2; 
+b = 6;
+fprintf('Before sample: a = %f, b = %f\n', a, b);
+out = sample(a, b);
+fprintf('After sample: a = %f, b = %f\n',a,b);
+fprintf('After sample: out = %f \n', out);
+%% 6.|函数的参数可调性|
+% * MATLAB|在函数调用上有一个特色，函数所传递参数数目的可调性，即|
+% 
+% |传递的参数的个数可以任意。|
+% 
+% *MATLAB|提供了两对永久变量：*|
+% 
+% * nargin|和|varargin|：用于检查被调用函数的输入参数数目|,|检查函数体内的被调用时的输入参数的值。|
+% 
+% * nargout|和|varargout|：用于检查被调用函数的输出参数的个数和每个输出参数|
+
+area = circle(5, 'b')
+%% |7.程序设计的基本步骤|
+% |（1）清晰地陈述你要解决的问题|
+% 
+% |（2）确定程序的输入输出|
+% 
+% |（3）为你的程序设计算法|
+% 
+% |（4）将算法转化为程序语言|
+% 
+% |（5）调试程序|
+% 
+% 
+%% 函数脚本
+
+% 脚本名称：arith_1.m
+% 脚本功能：任意输入一个正整数，如果是偶数，用2除
+%                              如果是奇数，用3乘再加1
+%           反复重复这个过程，直到得到的数为1
+%           将依次得到这个数的数列返回
+% 脚本作者：左手Python右手R
+% 创建时间：2018年07月12日19:32
+% 修改时间：
+%%
+function y = arith_1(x)
+    % 健壮性判断
+    if round(x) ~= x
+        error('Please enter an integer!');
+    end
+    
+    k = 1;                  % 赋序列初始索引
+    y(k) = x;               % 输入
+    while (x~=1) 
+        k = k + 1;          % 索引递增
+        if rem(x, 2) == 0   % 求余
+            x = x/2;        % 执行偶数对应操作
+            y(k) = x;
+        else 
+            x = x*3 + 1;    % 执行奇数对应操作
+            y(k) = x;
+        end
+    end
+end
+%% 
+% 
+
+function y = mainFunc(x)
+    y = x*subFunc(x);
+end
+
+function u = subFunc(w)
+    u = w/2;
+end
+%% 
+% 
+
+function [y] = sin_cos(x)
+%SIN_COS a small calculation
+%   cal cos then sin and return
+%   input: x
+%   output: y
+
+y = sin(cos(x));
+
+end
+%% 
+% 
+
+function out = sample(a, b)
+fprintf('In Sample, before compute: a = %f, b = %f \n', a, b);
+a = b + 2*a;
+b = a * b;
+out = [a  b];
+fprintf('In Sample, after compute: a = %f, b = %f\n', a, b);
+end
+%% 
+% 
+
+function s = circle(r, c)
+%CIRCLE plot a circle of radii r, with color c
+
+% input: r, radius
+%        c, color
+% output: s, area
+if nargin == 1
+    c = 'b';
+end
+clf
+t = 0:pi/100:2*pi;
+x = r*exp(i*t)
+if nargout == 0
+    plot(x, c)
+else
+    s = pi*r*r;
+    fill(real(x), imag(x), c)    
+end
+axis('square')
+end
+%% 
+% 
+% 
+%
+##### SOURCE END #####
+--></body></html>
