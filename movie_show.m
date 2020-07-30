@@ -1,9 +1,10 @@
-figure
+clear
 x=0:0.01*pi:2*pi;
 y=sin(x);
 len_x = length(x);
-witerObj=VideoWriter('sin_video.avi');  
+writerObj=VideoWriter('sin_video.avi');  
 open(writerObj);  
+figure
 for k=1:len_x
     plot(x(1:k),y(1:k));
     xlabel('t')
